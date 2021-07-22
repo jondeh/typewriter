@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
+* {
+    font-family: 'Ubuntu Mono', monospace;  
+}
+
+:root {
+    --typespeed: 4s;
+    --typedelay: 1s;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    position: relative;
+}
+
+h1::before, h1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -.125em;
+}
+
+h1::before {
+    /* content: '|'; */
+    background: white;
+    animation: typewriter var(--typespeed) steps(22) var(--typedelay) forwards;
+}
+
+h1::after {
+    width: .125em;
+    background: black;
+    animation: typewriter var(--typespeed) steps(22) var(--typedelay) forwards, blink 800ms steps(24) infinite;
+}
+
+@keyframes typewriter {
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes blink {
+    to {
+        background: transparent;
+    }
+}
